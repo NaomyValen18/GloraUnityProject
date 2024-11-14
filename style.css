@@ -5,15 +5,24 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .header {
     background-color: #000000;
     padding: 20px;
     text-align: center;
 }
+
 .header h1 {
     margin: 0;
     font-size: 36px;
 }
+
+.header h1::before {
+    content: "🔥"; /* Tambahkan ikon sebelum teks header */
+    margin-right: 10px;
+    font-size: 36px;
+}
+
 .header .status {
     display: inline-block;
     background-color: #007bff;
@@ -21,50 +30,94 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+    animation: blink 1.5s ease-in-out infinite; /* Animasi berkedip */
 }
+
 .header .ip {
     font-size: 14px;
     margin-left: 10px;
 }
+
 .content {
     padding: 20px;
     text-align: center;
 }
+
 .content h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
 .card {
     background-color: #1e1e1e;
     padding: 20px;
     margin: 10px 0;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.card:hover {
+    background-color: #333333;
+    transform: scale(1.02); /* Efek saat hover */
+}
+
 .card h3 {
     font-size: 18px;
     margin: 0 0 10px 0;
 }
+
 .card .value {
     font-size: 36px;
     color: #007bff;
 }
+
 .card .subtext {
     font-size: 14px;
     color: #888888;
 }
+
 .card .icon {
     font-size: 24px;
     margin-bottom: 10px;
 }
+
 .card .flag {
     width: 30px;
     height: 20px;
 }
+
 .card .rank {
     font-size: 24px;
     color: #f1c40f;
 }
+
 .card .rank-subtext {
     font-size: 14px;
     color: #888888;
 }
+
+/* Animasi untuk status berkedip */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 28px;
+    }
+    .header .status, .header .ip {
+        font-size: 12px;
+    }
+    .content h2 {
+        font-size: 20px;
+    }
+    .card h3 {
+        font-size: 16px;
+    }
+    .card .value {
+        font-size: 28px;
+    }
+        }
